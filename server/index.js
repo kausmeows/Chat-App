@@ -18,7 +18,7 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
 
-  socket.on("join", ({ name, room }) => {
+  socket.on("join", ({ name, room }, callback) => {
     console.log(name, room);
   });
 
