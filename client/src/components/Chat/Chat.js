@@ -3,6 +3,9 @@ import queryString from 'query-string';
 import io from 'socket.io-client';
 import { useLocation } from "react-router-dom";
 
+import './Chat.css';
+import InfoBar from '../InfoBar/InfoBar';
+
 let socket;
 
 
@@ -50,13 +53,12 @@ const Chat = () => {
    console.log(message, messages);
 
    return (
-       <><div className="outerContainer" /><div className="container">
-           <input
-               value={message}
-               onChange={(event) => setMessage(event.target.value)}
-               onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null} />
-       </div></>
-   )
+     <div className="outerContainer">
+       <div className="container">
+         <InfoBar room={room} />
+       </div>
+     </div>
+   );
 }
 
 export default Chat;
