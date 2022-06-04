@@ -29,9 +29,7 @@ const Chat = () => {
        setName(name);
        setRoom(room);
 
-       console.log(socket);
-       socket.emit('join', {name, room}, () => {
-           
+       socket.emit('join', {name, room}, () => {           
        });
 
        return () => {
@@ -52,8 +50,6 @@ const Chat = () => {
            socket.emit('sendMessage', message, () => setMessage(''));
        }
    }
-
-   console.log(message, messages);
 
    return (
      <div className="outerContainer">
